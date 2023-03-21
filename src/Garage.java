@@ -8,21 +8,22 @@ public class Garage implements Iterable<Car>{
     }
 
     private final class GarageIterator implements Iterator<Car> {
+        private int index = 0;
 
         @Override
         public boolean hasNext() {
-            return false;
+            return this.index < cars.length;
         }
 
         @Override
         public Car next() {
-            return null;
+            return cars[index++];
         }
     }
 
     @Override
     public Iterator<Car> iterator() {
-        return null;
+        return new GarageIterator();
     }
 
     public void test() {
